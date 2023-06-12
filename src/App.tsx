@@ -1,26 +1,51 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import Header from './componentes/Header';
+import Experience from './componentes/Experience';
+import Education from './componentes/Education';
+
+interface ExperienceData {
+  company: string;
+  position: string;
+  years: number;
+}
+
+interface EducationData {
+  institution: string;
+  degree: string;
+  year: number;
+}
+
+const App: React.FC = () => {
+  const experiences: ExperienceData[] = [
+    {
+      company: 'Etapa EP',
+      position: 'Desarrollador de Software',
+      years: 3,
+    },
+    {
+      company: 'Etapa EP',
+      position: 'Python',
+      years: 2,
+    },
+  ];
+
+  const education: EducationData[] = [
+    {
+      institution: 'Tecnológico Sudamericano',
+      degree: "4to Ciclo",
+      year: 2023-2024,
+    },
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header name="Pedro Pulgarin" />
+      <Experience experiences={experiences} />
+      <Education education={education} />
     </div>
   );
-}
+};
 
 export default App;
